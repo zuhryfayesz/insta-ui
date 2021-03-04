@@ -49,7 +49,7 @@ const Post = ({ posts }) => {
     }
 
     return (
-        <div style={{ marginBottom: '120px', marginTop: '20px' }}>
+        <div style={{ marginBottom: '85px', marginTop: '20px' }}>
             {posts['messages'].map(post => (
                 <div key={post._id} className="card" style={{ marginBottom: '20px' }}>
                     <div style={{ marginBottom: '10px' }}>
@@ -62,10 +62,13 @@ const Post = ({ posts }) => {
                         {/* <img width={28} style={{ color: '#bbc0c5' }} src="/favorite-white-18dp.svg" /> */}
                         <FontAwesomeIcon onClick={() => triggerLike(post)} color={post.is_liked == 0 ? '#bbc0c5' : '#fc619c'} style={{ fontSize: '25px' }} icon={faHeart}></FontAwesomeIcon>
                     </div>
-                    <div style={{ marginTop: '5px', paddingLeft: '5px' }}>
+                    <div style={{ marginTop: '10px', paddingLeft: '5px', marginBottom: '10px' }}>
                         <span><img width={20} style={{ color: 'white' }} src="/favorite-black-18dp.svg" /></span>
                         <span style={{ paddingTop: '0px', paddingLeft: '9px', position: 'absolute', fontWeight: '700' }}>{post.post_like_count} Likes</span>
                     </div>
+                    <div style={{ color: 'gray', fontWeight: '700', marginLeft: '5px', marginBottom: '20px' }}>{post.post_description}</div>
+                    <div style={{ marginLeft: '5px', marginBottom: '20px' }}>View {post.post_comment_count} comments</div>
+                    <hr style={{borderTop: '2px solid gray'}}/>
                 </div>
             ))}
         </div>
